@@ -19,6 +19,22 @@ body{
 .img{
     text-align: center;
     display: inline-block;
+    margin-left: 40px;
+    margin-right: 40px;
+    
 
+}
+
+.mybutton{
+    background-color: white;
+    border: 10px;
+    cursor: pointer;
+    
+}
+.mybutton:hover{
+    background-color: rgb(255, 255, 63);
+    background-position: center;
+    background-repeat: no-repeat;
+    transition-duration: 2ms;
 }
 
