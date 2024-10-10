@@ -1,64 +1,90 @@
-window.alert("Can we play a rock paper scissor game!?");
-
-// Function to get valid user input
-function getUserInput() {
-    let input;
-    do {
-        input = window.prompt("Please enter rock, paper, or scissor:").trim().toLowerCase();
-        if (input !== "rock" && input !== "paper" && input !== "scissor") {
-            console.log("Invalid input. Please enter 'rock', 'paper', or 'scissor'.");
-        }
-    } while (input !== "rock" && input !== "paper" && input !== "scissor");
-    return input;
-}
-
-let input = getUserInput(); // Get valid user input
-
-
-randomnumber = Math.floor(Math.random() * 3) + 1 ;
+let randomnumber = Math.floor(Math.random() * 3) + 1 ;
 console.log(randomnumber);
-let computerChoice;
 
-if (randomnumber === 1) {
-    computerChoice = 'rock';
-} 
+let yourchoice ;
+function game(yourchoice) {
 
-else if (randomnumber === 2) {
-    computerChoice = 'paper';
-} 
+    let player , computer ;
+    player = yourchoice.id ;
+    console.log(`your choice is ${player}`);
+    console.log(randomnumber);
+    computer = computerChoice();
+    console.log('Computer choice: ', computer);
+    results = decidewinner(player,computer);
+    console.log(results);
 
-else if(randomnumber === 3){
-    computerChoice = 'scissor';
+
+    frontend(player,computer,results);
+
+    return results; 
+    
 }
 
-if (input === computerChoice){
-    console.log(`Game tied !`);
+function computerChoice(){
+    return ( ['rock','paper','scissor'][randomnumber-1]);
 }
+console.log(computerChoice());
 
-else if (input == `rock` && computerChoice == 'paper' ) {
-    console.log(`Computer wins`);
+function decidewinner(player, computer) {
+    if (player === computer) {
+        return 'Game tied!';
+
+    } else if (player === 'rock' && computer === 'paper') {
+        return 'Computer wins';
+
+    } 
+    
+    else if (player === 'rock' && computer === 'scissor') {
+        return 'You win!';
+
+    } 
+    
+    else if (player === 'paper' && computer === 'rock') {
+        return 'You win!';
+
+    }
+    
+    else if (player === 'paper' && computer === 'scissor') {
+        return 'Computer wins';
+    } 
+    
+    else if (player === 'scissor' && computer === 'rock') {
+        return 'Computer wins';
+    }
+    
+    else if (player === 'scissor' && computer === 'paper') {
+        return 'You win!';
    
+    }
+
 }
 
-else if (input === `rock` && computerChoice ==='scissor'){
-    console.log(`You win!`);
+function frontend(player,computer,results) {
+    let imagdatabase = {
+        'rock' : document.getElementById("rock").src ,
+        'paper' : document.getElementById("paper").src , 
+        'scissor' : document.getElementById("scissor").src ,
+    }
+
+    //Removing the elements :
+    
+    document.getElementById("rock").remove() ;
+    document.getElementById("paper").remove();
+    document.getElementById("scissor").remove();
+
+    //creating an items for dispaly :
+    let playerdiv = document.createElement("div");
+    let resultsdiv = document.createElement("div");
+    let computerdiv = document.createElement("div");
+
+    //adding context to the newly created div :
+    playerdiv.innerHTML = `<img src= ${imagdatabase[player]} alt="you" width="100" height="100">` ;
+    resultsdiv.innerHTML = `<h1>${results}</h1>` ;
+    computerdiv.innerHTML = `<img src= ${imagdatabase[computer]} alt="computer" width="100" height ="100">` ;
+
+    document.getElementById('imgu').appendChild(playerdiv);
+    document.getElementById('imgu').appendChild(resultsdiv);
+    document.getElementById('imgu').appendChild(computerdiv);
+
+
 }
-
-else if (input === `paper` && computerChoice ==='rock'){
-    console.log(`You win!`);
-}
-
-else if (input === `paper` && computerChoice === 'scissor'){
-    console.log(` Computer Wins`);
-}
-
-else if (input === `scissor` && computerChoice === 'rock'){
-    console.log(` Computer Wins`);
-}
-
-else if (input === `scissor` && computerChoice === 'paper' ){
-    console.log(`You Win!`);
-}
-
-
-
