@@ -1,3 +1,5 @@
+addingtext = document.getElementById("colors");
+
 let colors = [
     "rgb(215, 215, 46)",
     "rgb(215, 46, 46)",
@@ -22,6 +24,8 @@ function flipper() {
 
 function changes(randomcolor){
     document.body.style.backgroundColor = randomcolor ;
+    addingtext.textContent = randomcolor ;
+
 }
 
 

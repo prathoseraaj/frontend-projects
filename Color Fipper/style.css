@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    height: 100vh;            
+    margin: 0;    
+    color: antiquewhite;            
+}
+
+.box {
+    padding: 50px;
+    background-color: rgb(26, 26, 26);
+    border-radius: 10px;
+    text-align: center;
+}
+
+#colors{
+    background-color: transparent;
+}
