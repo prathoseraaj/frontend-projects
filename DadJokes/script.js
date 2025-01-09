@@ -1,6 +1,3 @@
-const joke = document.getElementById('joke');
-const jokebutton = document.getElementById('jokebutton');
-
 async function fetchjoke() {
     
     const response = await fetch('https://icanhazdadjoke.com/', {
